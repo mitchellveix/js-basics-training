@@ -1,1 +1,3 @@
-# js-basics-training
+Live Preview Link
+
+https://mitchellveix.github.io/js-basics-training/
