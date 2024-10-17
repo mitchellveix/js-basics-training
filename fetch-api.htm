@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<h1>Fetch API</h1>
+<button id="fetchDataBtn">Click for result</button>
+<div id="output"></div>
+<div><img id="img" width="300" /></div>
+<script>
+document.getElementById('fetchDataBtn').addEventListener('click', () => {
+    fetch('https://dog.ceo/api/breeds/image/random')
+    .then(response => response.json())
+    .then(data => {
+        const outputDiv = document.getElementById('output'); // Select the div by its ID
+        data.status = "This is now updated.";
+        outputDiv.innerHTML = JSON.stringify(data.status); // Convert JSON to string and display it
+
+        const imageSrc = data.message;
+        const outputImage = document.getElementById('img');
+        outputImage.src = imageSrc;
+    })
+    .catch(error => {
+        console.error('Error:', error); // Handle any errors
+     });
+});
+</script>
+</body>
+</html>
